@@ -1,50 +1,38 @@
 import React from 'react';
 import {
     StyleSheet,
+    Text,
+    TouchableHighlight,
     View
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Images from '../../components/image/image';
 import ButtonComponent from '../../components/Button/Button';
 
-
-
-
-
-const imagesPNG = {
-   logo: require('../../components/images/group.png')
-};
-
-
+const imagesPNG = { logo: require('../../components/images/group.png') };
 
 class Menu extends React.Component {
-
-
-
     render(){
         return(
-                <LinearGradient
-                    colors={['#fc5888', '#f77061']}
-                    style={styles.MenuContainer}>
-                    <Images
-                        logoStyle={styles.logo}
-                        logo={imagesPNG.logo}/>
-                    <ButtonComponent
-                        title={"dalej"}
-                        butttonStyle={styles.button}/>
-                </LinearGradient>
+              <LinearGradient colors={['#0E4B0E', '#86BA86']} style={styles.MenuContainer}>
+                  <Images logoStyle={styles.logo} logo={imagesPNG.logo}/>
 
+                  <TouchableHighlight style={styles.button} onPress={()=>navigate('Settings')}  underlayColor='#86BA86'>
+                      <View><Text style={styles.text1}>Rozpocznij test</Text></View>
+                  </TouchableHighlight>
+
+                  <TouchableHighlight style={styles.button}  onPress={()=>navigate('Settings')} underlayColor='#86BA86'>
+                      <View><Text style={styles.text2}>Twoje testy</Text></View>
+                  </TouchableHighlight>
+
+                  <TouchableHighlight style={styles.button}  onPress={()=>navigate('Settings')}  underlayColor='#86BA86'>
+                      <View><Text style={styles.text2}>Ustawienia</Text></View>
+                  </TouchableHighlight>
+              </LinearGradient>
         )
     }
-
-
-
 }
-
-
 export default Menu;
-
-
 
 const styles = StyleSheet.create({
     MenuContainer:{
@@ -58,8 +46,20 @@ const styles = StyleSheet.create({
         height          : 120,
     },
     button:{
-        width: 100,
-        height: 90,
-        backgroundColor: "#a1ff4d",
-    }
+        marginLeft      : 50,
+        marginRight     : 50,
+        marginTop       : 20,
+        height          : 50,
+        backgroundColor : 'white',
+    },
+    text1:{
+        fontSize        :  25,
+        margin          :  10,
+        marginLeft      :  50,
+    },
+    text2:{
+        fontSize        :  25,
+        margin          :  10,
+        marginLeft      :  80,
+    },
 });
